@@ -42,6 +42,8 @@ function handleSearch(e){
               var headline = document.createElement('span');
               headline.textContent = person.professionalHeadline;
               var picture = document.createElement("img");
+              //if the person hasn't set a profile picture, it falls backto a standard one,
+              //instead of showing a broken img link.
               if (person.picture ===undefined){
                 picture.src = "images/torre-user.png";
               } else{
@@ -64,18 +66,21 @@ function handleSearch(e){
                 newParagraph.appendChild(arrayOfInfo[[i]]);
               }
 
+              //Wrap each result into its own profile link
               var linkToProfile = document.createElement('a');
               linkToProfile.setAttribute('href', 'https://torre.bio/' + person.publicId);
               linkToProfile.appendChild(newParagraph);
               linkToProfile.target = "_blank";
               document.getElementById("results").appendChild(linkToProfile);
-});
-                //document.getElementsByClassName("results").innerHTML =
-                //this.responseText;
-      }else{
+      });
+  
+  }else{
+        //If request fails, throw error
         console.log("error");
       }
-    };
+  };
+
+    //send request
           xhr.send(); 
 
         }
