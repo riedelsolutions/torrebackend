@@ -19,6 +19,7 @@ app.use(function(req, res, next) {
 
 app.get('/', function(req, res, next) {
   // Handle the get for this route
+  res.redirect('/index.html');
 });
 
 app.post('/', function(req, res, next) {
