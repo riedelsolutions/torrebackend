@@ -33,6 +33,9 @@ function handleSearch(e){
               headline.textContent = person.professionalHeadline;
               var picture = document.createElement("img");
               picture.src= person.picture;
+              if (picture.src === undefined || picture.src === null || picture.src == ""){
+                picture.style.display = "none";
+              }
               var br = document.createElement("br");
               var weight = document.createElement('span');
               weight.textContent = "Weight: " + Math.round(person.weight).toString();
