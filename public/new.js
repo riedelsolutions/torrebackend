@@ -25,8 +25,21 @@ function handleSearch(e){
                //For each result, format it.
                data.forEach(person => {
               //console.log(person.publicId);
-              var newParagraph = document.createElement('h4');
-               newParagraph.textContent = person.publicId;
+              var newTitle= document.createElement('h4');
+               newTitle.textContent = "@" + person.publicId;
+              var name = document.createElement('h6');
+              name.textContent = person.name;
+              var headline = document.createElement('p');
+              headline.textContent = person.professionalHeadline;
+              var picture = document.createElement("img");
+              picture.src= person.picture;
+
+              var arrayOfInfo = [newTitle, name, headline, picture];
+
+              var newParagraph = document.createElement('p');
+              for (var i = 0; i < arrayOfInfo.length; i++){
+                newParagraph.appendChild(arrayOfInfo[[i]]);
+              }
                document.getElementById("results").appendChild(newParagraph);
 });
                 //document.getElementsByClassName("results").innerHTML =
