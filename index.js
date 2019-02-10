@@ -7,7 +7,9 @@ app.get('/index.html', function(req, res, next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
