@@ -1,5 +1,8 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -11,9 +14,6 @@ app.use(function(req, res, next) {
 app.use(
   express.static(__dirname + '/public')
   );
-
-
-
 
 
 
