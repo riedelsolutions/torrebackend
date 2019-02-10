@@ -1,5 +1,8 @@
 function handleSearch(e){
     if(e.keyCode ===13){
+      //reset search div
+      document.getElementById("table").style.display = "none";
+      document.getElementById("table").innerHTML = "";
       var getQuery = "";
     	getQuery = document.getElementById('query').value;
     	var apiString = 'https://torre.bio/api/people?[q=' + getQuery + "&limit=20"; /*check whether to put ]  or not*/
@@ -18,8 +21,13 @@ function handleSearch(e){
 
                var data = JSON.parse(this.response);
                document.getElementById("table").style.display = "block";
+
+               //For each result, format it.
                data.forEach(person => {
-              console.log(person.publicId);
+              //console.log(person.publicId);
+              var newParagraph = document.createElement('h4');
+               newParagraph.textContent = person.publicId;
+               document.getElementById("results").appendChild(newParagraph);
 });
                 //document.getElementsByClassName("results").innerHTML =
                 //this.responseText;

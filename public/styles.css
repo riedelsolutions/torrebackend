@@ -18,6 +18,14 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  font-size: 1.563em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
 body {
   background-color: #ffffff;
   margin: 0px;
