@@ -24,23 +24,36 @@ function handleSearch(e){
 
                //For each result, format it.
                data.forEach(person => {
-              //console.log(person.publicId);
-              var newTitle= document.createElement('h4');
-               newTitle.textContent = "@" + person.publicId;
-              var name = document.createElement('h6');
+              //create all the result elements
+              var newTitle= document.createElement('h3');
+              newTitle.textContent = "@" + person.publicId;
+              var name = document.createElement('h5');
               name.textContent = person.name;
-              var headline = document.createElement('p');
+              var headline = document.createElement('span');
               headline.textContent = person.professionalHeadline;
               var picture = document.createElement("img");
               picture.src= person.picture;
+              var br = document.createElement("br");
+              var weight = document.createElement('span');
+              weight.textContent = "Weight: " + Math.round(person.weight).toString();
+              weight.style.fontWeight="bold";
+ 
 
-              var arrayOfInfo = [newTitle, name, headline, picture];
+              //Store them into an array
+              var arrayOfInfo = [newTitle, picture, name, headline, br, weight];
 
+              //Create a paragraph for each result and iterate through the array,
+              //adding the elements
               var newParagraph = document.createElement('p');
               for (var i = 0; i < arrayOfInfo.length; i++){
                 newParagraph.appendChild(arrayOfInfo[[i]]);
               }
-               document.getElementById("results").appendChild(newParagraph);
+
+              var linkToProfile = document.createElement('a');
+              linkToProfile.setAttribute('href', 'https://torre.bio/' + person.publicId);
+              linkToProfile.appendChild(newParagraph);
+              linkToProfile.target = "_blank";
+              document.getElementById("results").appendChild(linkToProfile);
 });
                 //document.getElementsByClassName("results").innerHTML =
                 //this.responseText;

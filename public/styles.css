@@ -26,6 +26,10 @@ h5 {
   font-size: 1.25em;
 }
 
+h6{
+  font-size:1.10em;
+}
+
 body {
   background-color: #ffffff;
   margin: 0px;
@@ -114,13 +118,35 @@ input[type=text]:hover::placeholder, input[type=text]:focus, input[type=text]:fo
 
 .results {
   margin: auto;
-  width: 80%;
+  width: 98%;
   display: none;
+  background-color: #e5f6f8;
+  border-radius: 8px;
 }
-/*
-.results:nth-child(1) {
-  max-width: 10%;
-}*/
+
+.results p{
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 50px;
+  background-color: #e5f6f8;
+  text-align: left;
+  border-radius: 8px;
+  clear: both;
+
+}
+
+.results a{
+  text-decoration: none;
+  color:black;
+}
+
+.results img{
+  max-width: 15%;
+  float: left;
+ /* clear: both;*/
+  margin: 10px;
+}
+
 
 .results-table{
   width: 100%;
