@@ -17,8 +17,8 @@ function handleSearch(e){
               if (this.readyState == 4 && this.status == 200) {
 
                var data = JSON.parse(this.response);
+               document.getElementById("table").style.display = "block";
                data.forEach(person => {
-                // Log each movie's title
               console.log(person.publicId);
 });
                 //document.getElementsByClassName("results").innerHTML =
