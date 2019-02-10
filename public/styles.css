@@ -86,7 +86,7 @@ button {
   background-image: url("images/torre-nav-search.png");
   background-repeat: no-repeat;
   background-color: #00acc1;
-  min-width: 90%;
+  min-width: 85%;
   height: 60px;
   border-radius: 5px;
   margin-top: 5%;
@@ -179,5 +179,12 @@ footer{
     max-width: 5%;
   }
 
+}
+
+@media only screen and (max-width: 620px){
+
+  .search{
+    max-width: 80%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
