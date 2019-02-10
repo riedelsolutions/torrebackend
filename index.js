@@ -7,7 +7,7 @@ app.get('/index.html', function(req, res, next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
