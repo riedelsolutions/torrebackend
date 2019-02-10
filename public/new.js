@@ -1,8 +1,8 @@
 function handleSearch(e){
     if(e.keyCode ===13){
       //reset search div
-      document.getElementById("table").style.display = "none";
-      document.getElementById("table").innerHTML = "";
+      document.getElementById("results").style.display = "none";
+      document.getElementById("results").innerHTML = "";
       var getQuery = "";
     	getQuery = document.getElementById('query').value;
     	var apiString = 'https://torre.bio/api/people?[q=' + getQuery + "&limit=20"; /*check whether to put ]  or not*/
@@ -20,7 +20,7 @@ function handleSearch(e){
               if (this.readyState == 4 && this.status == 200) {
 
                var data = JSON.parse(this.response);
-               document.getElementById("table").style.display = "block";
+               document.getElementById("results").style.display = "block";
 
                //For each result, format it.
                data.forEach(person => {
