@@ -14,18 +14,16 @@ function handleSearch(e){
 
       //Add it to the api url
       var apiString = 'https://torre.bio/api/people?[q=' + getQuery + "&limit=20"; /*omitted ] for API to properly point where it should.*/
-      
-      //console.log(apiString);
 
    //Start http request to the api
-      
+      const xhr = new XMLHttpRequest();
+      const url = "https://cors-anywhere.herokuapp.com/" + apiString;
 
-      function callOtherDomain() {
+  function callOtherDomain() {
+        
 
-        const xhr = new XMLHttpRequest();
-      const url = apiString;
-        if(true) {    
-          
+        if(xhr) {    
+        xhr.open('GET', url, true); 
         xhr.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
 
@@ -33,7 +31,7 @@ function handleSearch(e){
                document.getElementById("results").style.display = "block";
 
                //For each result, format it.
-               data.forEach(person => {
+            data.forEach(person => {
               //create all the result elements
               var newTitle= document.createElement('h3');
               newTitle.textContent = "@" + person.publicId;
@@ -73,16 +71,19 @@ function handleSearch(e){
               linkToProfile.target = "_blank";
               document.getElementById("results").appendChild(linkToProfile);
       });
-  
-  }else{
+        
+        }else{
         //If request fails, throw error
         console.log("error");
-      }
+        //Print status and readystate if failing (only in production)
+        //console.log(this.readyState);
+        //console.log(this.status);
+        }
   };
 
     //send request
-    xhr.open('GET', url, true);
-          xhr.send(); 
+   // xhr.open('GET', url, true);
+    xhr.send(); 
 
         }
       }
