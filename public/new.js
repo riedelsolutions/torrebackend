@@ -13,7 +13,7 @@ function handleSearch(e){
       getQuery = document.getElementById('query').value;
 
       //Add it to the api url
-      var apiString = 'https://torre.bio/api/people?[q=' + getQuery + "&limit=20"; /*omitted ] for API to properly point where it should.*/
+      var apiString = 'https://torre.bio/api/people?q=' + getQuery + "&limit=20"; /*omitted ] for API to properly point where it should.*/
 
    //Start http request to the api
       const xhr = new XMLHttpRequest();
